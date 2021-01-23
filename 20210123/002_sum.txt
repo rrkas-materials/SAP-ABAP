@@ -1,0 +1,6 @@
+report zr01.
+data : var1 type I value 10,
+	var2 type I value 20.
+data var3 type I.
+var3 = var1 + var2.
+write: 'sum is:', var3.

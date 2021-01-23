@@ -1,0 +1,55 @@
+ABAP is not case sensitive
+. is the terminator
+----------------------------------------
+after loging: easy access page
+
+menubar
+standard tool bar
+title bar
+body
+taskbar
+
+sessions---------------------------------
+
+max 6 sessions
+
+F3		back
+Shift + F3	exit
+F12		cancel
+
+----------------------------------------------
+name of program
+	CREATE
+give title
+type		executable program
+status		test program
+application	cross-application
+	SAVE
+
+
+ctrl+F2			check program
+ctrl+F3			activate
+F8			change
+pretty printer		formats the source code for better visibility
+
+
+\n = New-line.
+or
+\n = /
+
+commenting------------------------------
+select lines
+ctrl+,	= comment
+//	= *
+ctrl+.	= uncomment
+
+multiple statements---------------------
+write : 'hello world', / 'hello world 2'.
+
+vertical spacing---------------------------
+skip 7.
+
+heading-----------------------------------
+write 'heading'.
+new-line.
+uline [spaces from left].

@@ -1,0 +1,13 @@
+se38  		abap editor: initial screen
+se11		abap dictionary			display, change, create
+se12		abap dictionary			display
+se51		screen painter
+se41		menu painter
+se37		function builder
+se24		class builder
+
+
+/o[t-code]	opens transaction in a new session keeing present sessions alive
+/n[t-code]	opens transaction in a new session after closing current session
+/nend		closes all sessions with a warning dialog
+/nex		closes all sessions without any warning

@@ -1,0 +1,10 @@
+report zr01.
+data date type D.
+date = sy-datum.
+write date.
+new-line.
+new-line.
+write: / sy-mandt,
+	/ sy-uname,
+	/ sy-datum,
+	/ sy-uzeit.
