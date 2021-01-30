@@ -1,0 +1,6 @@
+report zr01.
+parameters : var1 type I default 10,
+       	     var2 type I color 2.
+data var3 type I.
+var3 = var1 + var2.
+write: 'sum is:', var3.

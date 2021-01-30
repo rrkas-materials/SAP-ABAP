@@ -1,0 +1,32 @@
+a program can be created from object navigator directly
+
+ctrl f1 : display <-> change
+
+running a program:
+save
+check
+activate
+direct run
+
+f3 : exit from program output
+
+--------------------------------------
+
+add 2 to var1.
+multiply 2 by var1.
+divide 2 by var1.
+subtract 2 from var1.
+
+---------------------------------------
+
+var1 = 2 * 4 - 3;
+
+precedence
+()
+exp
+/  *
++  -
+
+--------------------------------------
+
+clear var1.

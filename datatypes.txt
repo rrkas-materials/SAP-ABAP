@@ -1,0 +1,3 @@
+I	int			20		var1 type I length 10 value 20
+C	string/char		'C'		var1 type C length 10 value 'CET'
+N	numeric			'123'		var1 type N length 10 value '123'

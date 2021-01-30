@@ -5,6 +5,7 @@ se51		screen painter
 se41		menu painter
 se37		function builder
 se24		class builder
+se80		object navigator
 
 
 /o[t-code]	opens transaction in a new session keeing present sessions alive
