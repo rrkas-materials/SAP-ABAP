@@ -1,10 +1,10 @@
-se38  		abap editor: initial screen
-se11		abap dictionary			display, change, create
-se12		abap dictionary			display
-se51		screen painter
-se41		menu painter
-se37		function builder
+se11		abap dictionary			        display, change, create
+se12		abap dictionary			        display only
 se24		class builder
+se37		function builder
+se38  		abap editor: initial screen
+se41		menu painter
+se51		screen painter
 se80		object navigator
 
 

@@ -1,0 +1,61 @@
+report zr03.
+data var1 type i value 155.
+
+If var <= 143.
+    write 'inside if'.
+elseIf var >= 180.
+    write 'inside if'.
+else.
+    write 'inside else'.
+end if.
+
+write / 'hello'.
+
+
+
+data a type i value 3.
+
+case a.
+when 1.
+    write '1'.
+when 2.
+    write '2'.
+when others.
+    write 'others'.
+endcase.
+
+
+
+
+data c type i.
+
+while c < 10.
+    write / c.
+    c = c + 1.
+endwhile.
+
+
+
+data d type i.
+
+do 20 times.
+    write / d.
+    check d between 3 and 15.   "below statements will be executed when     d>=3 and d<=15
+    if d between 5 and 11.      "below statements will be ignored when      d>=5 and d<=11
+        continue.
+    if d = 13.                  "loop will break when                       d = 13
+        exit.
+    d = d + 1.
+enddo.
+
+
+
+* lt    <
+* le    <=
+* gt    >
+* ge    >=
+
+* and       or      not
+
+* continue          statements following it will be ignored
+* 

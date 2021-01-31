@@ -1,0 +1,15 @@
+conditions to add breakpoints:
+    max 30 breakpoints in a program
+    breakpoints can be 
+    program should be active
+
+
+Ctrl + shift + f12      set breakpoints
+F8                      go to debugger
+click on red circle     delete breakpoint
+
+in debugger screen:
+F5                      execute single statement
+F6                      execute module (subroutines/ function module/ class methods) in single step
+F7                      return: completes current module/ program in one step
+F8                      continue

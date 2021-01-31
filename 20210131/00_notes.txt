@@ -1,0 +1,9 @@
+dispatcher---------------------
+collects requests from frontend and send to various workprocesses
+
+workprocess--------------------
+    Dialog	        To Fulfill all requests for execution of dialog steps triggered by an active user or execute dialog programs.
+    Background	    It executes those programs that run without user interaction or executes time dependent or event controlled background jobs.
+    Update	        It executes Update Requests or Asynchronous database changes which are controlled by a COMMIT WORK statement in a dialog work process.
+    Spool	        It pass sequential data flows onto Printers or Print Formatting to printer, file or database.
+    Enqueue	        Administers the lock table in shared memory or If SAP transactions have to synchronize themselves it executes locking operations.
