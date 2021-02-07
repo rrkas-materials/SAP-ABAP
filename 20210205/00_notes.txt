@@ -1,0 +1,19 @@
+creating tables:
+
+top down approach:
+    table
+    data field
+    domain
+
+steps:
+refer pdf
+
+
+bottom uo approach:
+    domain
+    data field
+    table
+
+
+
+inserting data into table:
