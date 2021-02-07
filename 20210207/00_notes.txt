@@ -1,0 +1,87 @@
+dispatcher
+    passes instruction to work processor
+
+work processors: 5 types
+    bason on task recieved, distribute jobs to specific work process
+
+modularity
+    error handling
+    code reuse
+    less code redundancy
+
+
+macros----------------------------------------------------------------
+define demo.
+    write 'hello'.
+end-of-definition.
+
+demo. "calling macro
+demo.
+demo.
+
+do 5 times.
+    demo.
+enddo.
+
+---------------------------------
+
+parameters: a type i, b type i.
+data c type i.
+define addn.
+    c = a + b.
+    write: 'sum:', c.
+end-of-definition.
+addn.
+
+---------------------------------
+
+parameters: a type i, b type i.
+data c type i.
+define addn.
+    c = &1 &2 &3.
+    write / c.
+end-of-definition.
+addn a + b.
+addn a - b.
+addn a * b.
+addn a / b.
+addn a: + b, - b, * b, / b.
+addn : a + b, a - b, a * b, a / b.
+
+subroutine-------------------------------------------------------------------
+
+data a type i value 10. "global variable
+
+perform demo. "function call
+
+form demo.  "function definition
+    data b type i value 20.
+endform.
+
+-----------------------------------------
+
+parameters: m type i, n type i.
+data sum type i.
+
+perform do_sum.
+perform write_sum.
+
+form do_sum.
+    sum = m + n.
+endform.
+
+form write_sum.
+    write sum.
+endform.
+
+------------------------------------------call by value
+
+data a type i value 20.
+write a.
+perform call_value using a. "a is actual parameter
+write a.
+
+form call_value using value(p_a). "p_a is formal arg
+    p_a = p_a + 20.
+    write p_a.
+endform.
