@@ -1,0 +1,11 @@
+ABAP data dictionary
+
+top down approach
+table --> data element --> domain
+
+bottom-up approach
+domain --> data element --> table
+
+standard table:
+MARA
+
