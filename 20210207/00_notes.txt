@@ -9,6 +9,15 @@ modularity
     code reuse
     less code redundancy
 
+modularization techniques
+    macro
+    subroutine
+        call by value
+        call by reference
+        call by value and result
+    include
+    function module
+
 
 macros----------------------------------------------------------------
 define demo.

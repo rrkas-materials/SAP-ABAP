@@ -1,0 +1,106 @@
+subroutines-------------------------------------------------------------------------------
+
+----------------------------------call by reference
+data a type i value 20.
+write a.
+perform call_value using a. "a is actual parameter
+write a.
+
+form call_value using p_a.  "p_a is formal arg
+    p_a = p_a + 20.
+    write p_a.
+endform.
+
+
+----------------------------------call by value and result
+data a type i value 20.
+write a.
+perform call_value changing a.         "a is actual parameter
+write a.
+
+form call_value changing value(p_a).   "p_a is formal arg
+    p_a = p_a + 20.
+    write p_a.
+endform.
+
+
+function module----------------------------------------------------------------------------------
+    available to all users
+    pass by reference by default
+
+----------------------------------------------creating function module
+right click on package --> create --> function group
+    name
+    short text
+se37
+    name --> create
+    function group, desc --> save
+    tick
+
+-----------------------------------------------
+imports tab
+    parameter name      typing          associated type     optional    pass value          short text          long
+    num1                type            i
+    num2                type            i
+exports tab
+    res                 type            i
+exceptions
+    exception           short text
+    plz_check_input     exception
+source code---------------
+
+function Zrfunc_01.
+
+res = num1 + num2.
+if num1 = 0.
+    raise plz_check_input.
+endif.
+endfunction.
+
+
+------------------------------------------------------activating function module
+se80
+right click on function grp
+ckeck -> syntax
+again right click on function grp
+acivate
+
+------------------------------------------------------executing
+se80
+right click on function grp
+execute -> in test environment
+enter parameters
+execute
+
+structures-----------------------------------------------------------------------------------------
+types:  Begin of student,
+        stu_name(20) type c,
+        stu_age(2), "default is c
+        stu_mno type n,
+        stu_std(10) type c, 
+        end of student.
+
+data s type student.
+s-stu_name = 'rohnak'.
+s-stu_age = '20'.
+s-stu_mno = '9658600961'.
+s-stu_std = 'UG-CSE'.
+
+write : s-stu_name, s-stu_age, s-stu_mno, s-stu_std.
+------------------------------------------------------accessing table data
+
+data :  wa type zemployee,              "work area = can contain single record
+        itab type table of zemployee.   "internal table = temporary table to access data
+
+select * from zemployee into table itab.
+
+loop at itab into wa.
+    at first.
+        write sy-uline.
+        write : 'EMP_ID', 'EMP_NAME', 'EMP_DEPT', 'EMP_AGE'.
+    endat.
+    write : wa-EMP_ID, wa-EMP_NAME, wa-EMP_DEPT, wa-EMP_AGE.
+    new-line.
+    uline at(10).
+endloop.
+
