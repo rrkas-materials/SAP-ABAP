@@ -1,0 +1,3 @@
+creating projection view
+
+steps in 01_ppts > 04_DDIC ABAP.pdf
