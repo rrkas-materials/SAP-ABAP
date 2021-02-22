@@ -1,0 +1,175 @@
+REPORT ZITAB_OPERATION.
+
+
+
+TYPES: BEGIN OF student,    " student is structure type
+         id    TYPE i,
+         name(15) TYPE c,
+         addr(15) TYPE c,
+       END  OF student.
+
+TYPES: itab TYPE  TABLE OF student. " itab is table type
+
+DATA: str_var TYPE student,                 " str_var is structure variable
+      itab1   TYPE STANDARD TABLE OF student, " itab1 is internal table and by default it is standard table type
+      itab2   TYPE itab.                   " itab2 is an internal table refering to table type
+
+str_var-id   = 1.
+str_var-name = 'ASIF'.
+str_var-addr = 'BOLPUR'.
+APPEND str_var TO itab1. " append first record to itab
+CLEAR str_var.
+
+str_var-id  = 2.
+str_var-name = 'BASU'.
+str_var-addr = 'SHOLAPUR'.
+APPEND str_var TO itab1.
+CLEAR str_var.   " clear workarea
+
+str_var-id  = 3.
+str_var-name = 'RAMESH'.
+str_var-addr = 'RAMNAGAR'.
+APPEND str_var TO itab1.
+CLEAR str_var.
+
+str_var-id  = 4.
+str_var-name = 'GANESH'.
+str_var-addr = 'EKBALPUR'.
+APPEND str_var TO itab1.
+CLEAR str_var.       " used to clear contents of structure variable/internal table/variables declared using elementary type.
+*
+*
+*DATA : v_lines TYPE i. "Type integer
+*DESCRIBE TABLE itab1 LINES v_lines ." Count the no. of record of a internal table
+*WRITE:/ 'NO. of Records ',v_lines .
+*skip 2.
+*ULINE .
+WRITE:/10  ' DISPLAYING ITAB1 DATA  ' .
+
+ULINE  .
+LOOP AT itab1 INTO str_var.
+AT FIRST.
+    WRITE:/18  'ID',
+           50 'NAME',
+           80  'ADDRESS'.
+    ENDAT.
+
+  WRITE:/10    str_var-id color 6,
+         50    str_var-name color 7,
+         80    str_var-addr color 4.
+ENDLOOP.
+
+ULINE .
+
+*READ TABLE itab1 INTO str_var   INDEX 2.  " only reads a single row here index means second row
+*WRITE:/  str_var-id,
+*           str_var-name,
+*           str_var-addr.
+
+
+str_var-id  = 4.
+str_var-name = 'GANESH'.
+str_var-addr = 'EKBALPUR'.
+APPEND str_var TO itab1.  " duplicate entry .
+
+str_var-id  = 4.
+str_var-name = 'GANESH'.
+str_var-addr = 'EKBALPUR-1'.
+APPEND str_var TO itab1.  " duplicate entry .
+
+*
+*str_var-id  = 5.
+*str_var-name = 'ASHI'.
+*str_var-addr = 'SOMNAGAR'.
+*APPEND str_var TO itab1.
+*INSERT str_var INTO itab1 INDEX 2  . " insert at index 2 i.e row 2
+
+str_var-id  = 5.
+str_var-name = 'ASHWINI'.
+str_var-addr = 'SOMVIHAR'.
+MODIFY  ITAB1 from  str_var INDEX 2 . " modify whole record at index 3 .
+
+
+str_var-id  = 6.
+str_var-name = 'ANISH'.
+str_var-addr = 'ALIPUR'.
+APPEND str_var TO itab1.
+CLEAR str_var.
+
+str_var-id  = 7.
+str_var-name = 'ASHIN'.
+str_var-addr = 'SOMNAGAR-1'.
+APPEND str_var TO itab1. " append record in internal table at index 7 
+MODIFY  ITAB1 from  str_var INDEX 3 TRANSPORTING ADDR  . "NAME . " modify only address at index 3 i.e row 3.
+
+
+*DELETE ITAB1 INDEX 2 . " DELETE 2ND ROW
+*DELETE ITAB1 FROM 2  TO 3 . " DELETE 2ND AND 3RD ROW
+
+
+*SORT itab1  . " before using delete adjacent always sort internal table .
+*SORT itab1  BY name   DESCENDING   . " by default sort is ascending type.
+
+
+
+DELETE ADJACENT DUPLICATES FROM  ITAB1 . " before using delete adjacent always sort internal table .
+*DELETE ADJACENT DUPLICATES FROM  ITAB1 COMPARING ID  NAME  ADDR . " delete data by comparing specific fields.
+
+
+
+
+
+*ULINE .
+WRITE:/10  ' DISPLAYING ITAB1 updated  DATA  ' .
+
+ULINE  .
+LOOP AT itab1 INTO str_var.
+AT FIRST.
+    WRITE:/18  'ID',
+           50 'NAME',
+           80  'ADDRESS'.
+    ENDAT.
+
+  WRITE:/10    str_var-id color 6,
+         50    str_var-name color 7,
+         80    str_var-addr color 4.
+ENDLOOP.
+
+
+
+ULINE.
+APPEND LINES OF itab1 FROM 1  TO  3 TO itab2. " APPEND DATA FROM ANOTHER INTERNAL TABLE
+uline .
+WRITE:/10  ' DISPLAYING ITAB2 DATA AFTER APPENDING ITAB1 DATA ' .
+ULINE  .
+LOOP AT itab2 INTO str_var.
+AT FIRST.
+    WRITE:/18  'ID',
+           50 'NAME',
+           80  'ADDRESS'.
+    ENDAT.
+
+  WRITE:/10    str_var-id color 6,
+         50    str_var-name color 7,
+         80    str_var-addr color 4.
+ENDLOOP.
+
+ULINE .
+  
+INSERT LINES OF itab1 FROM 5 TO 6  INTO itab2 INDEX 4. " INSERT DATA FROM ANOTHER INTERNAL TABLE
+
+WRITE:/ ' DISPLAYING ITAB2 DATA AFTER INSERTING ROWS 5 AND 6   ' .
+ULINE  .
+LOOP AT itab2 INTO str_var.
+AT FIRST.
+    WRITE:/18  'ID',
+           50 'NAME',
+           80  'ADDRESS'.
+    ENDAT.
+
+  WRITE:/10    str_var-id color 6,
+         50    str_var-name color 7,
+         80    str_var-addr color 4.
+ENDLOOP.
+
+ULINE .

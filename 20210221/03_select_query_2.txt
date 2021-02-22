@@ -1,0 +1,60 @@
+EPORT ZDEMO_REPORT_1.
+TYPES: BEGIN OF ty_cust,
+        id       TYPE scustom-id,
+        name     TYPE scustom-name,
+        postcode TYPE scustom-postcode,
+        country  TYPE scustom-country,
+        discount TYPE scustom-discount,
+      END OF ty_cust.
+
+DATA: it_cust TYPE STANDARD TABLE OF ty_cust,
+       wa_cust TYPE ty_cust,
+       wa_cust1 TYPE scustom .
+
+***///// SELECT SINGLE
+* SELECT SINGLE * FROM SCUSTOM INTO WA_CUST1 WHERE ID = '00000001 ' .
+*
+*  WRITE:/ wa_cust1-id,
+*         wa_cust1-name,
+*         wa_cust1-postcode,
+*         wa_cust1-country,
+*         wa_cust1-discount.
+
+
+**  *****///// SELECT  UPTO
+*   SELECT  * FROM SCUSTOM INTO WA_CUST1  UP TO 1 ROWS WHERE ID = '00000001 ' .
+*   ENDSELECT .
+*
+*  WRITE:/ wa_cust1-id,
+*         wa_cust1-name,
+*         wa_cust1-postcode,
+*         wa_cust1-country,
+*         wa_cust1-discount.
+
+*  SELECT UPTO FOR FETCHING MULTIPLE RECORDS
+
+
+SELECT
+  id
+  name
+  postcode
+  country
+  discount
+  from scustom into table it_cust UP TO 30 rows .
+
+
+IF SY-SUBRC EQ 0 .
+LOOP AT it_cust INTO wa_cust .
+  WRITE:/ wa_cust-id,
+          wa_cust-name,
+          wa_cust-postcode,
+          wa_cust-country,
+          wa_cust-discount.
+ENDLOOP.
+ELSE.
+    MESSAGE 'DATA NOT FOUND' TYPE 'I'.
+  ENDIF.
+skip 2 .
+uline .
+skip 2.
+write :' NO. OF ROWS ' , sy-dbcnt.

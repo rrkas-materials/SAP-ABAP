@@ -1,0 +1,40 @@
+REPORT ZDEMO_REPORT.
+ TYPES: BEGIN OF ts_vbap,
+         vbeln TYPE vbap-vbeln,
+         posnr TYPE vbap-posnr,
+         matnr TYPE vbap-matnr,
+         arktx TYPE vbap-arktx,
+       END OF ts_vbap.
+
+TYPES: tt_vbap TYPE STANDARD TABLE OF ts_vbap.
+
+data: itab3 type tt_vbap,
+       wa3  TYPE ts_vbap.
+
+
+select vbeln
+       posnr
+       matnr
+       arktx
+  from vbap into table itab3
+  up to 20 rows.
+
+skip 2.
+
+  LOOP AT itab3 into wa3.
+    AT FIRST.
+      WRITE : /10(130) SY-ULINE .
+      WRITE:/10 'Sales Document',
+             50 'Sales Document item' ,
+             80 'Material No.',
+             100 'Short text for sales order item'.
+
+         WRITE /10(130) SY-ULINE .
+        ENDAT.
+write:/10 wa3-vbeln color 7,
+       50  wa3-posnr color 6,
+       80  wa3-matnr color 5,
+       100 wa3-arktx color 2.
+
+
+  ENDLOOP.

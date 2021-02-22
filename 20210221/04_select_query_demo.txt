@@ -1,0 +1,60 @@
+REPORT ZDEMO_SELECT_QUERY.
+
+
+*TYPES: BEGIN OF ty_sflight,
+*        connid   TYPE sflight-connid,
+*        fldate   TYPE sflight-fldate,
+*        seatsocc TYPE sflight-seatsocc,
+*      END OF ty_sflight.
+*
+*DATA: wa_sflight TYPE ty_sflight,
+*      wa_sflight1 TYPE sflight ,
+*      it_sflight TYPE STANDARD TABLE OF ty_sflight,
+*      it_sflight1 TYPE STANDARD TABLE OF sflight .
+*
+****SELECT SINGLE EXAMPLE
+*
+*SELECT SINGLE * FROM sflight  INTO wa_sflight1 WHERE seatsocc = '48 '. " Read exact record from sflight table
+*
+*write :/ wa_sflight1-connid,
+*         wa_sflight1-fldate,
+*         wa_sflight1-seatsocc. " Print data to screen
+
+**
+***SELECT UPTO EXAMPLE
+
+**SELECT * FROM sflight  INTO wa_sflight1  UP TO 1 ROWS WHERE seatsocc = '48 '. " Read appropriate record from MARA table here MTART is not a keyfield
+**
+**ENDSELECT.
+**
+**
+**write :/ wa_sflight1-connid,
+**         wa_sflight1-fldate,
+**         wa_sflight1-seatsocc. " Print data to screen
+
+*//// select upto to fetch multiple records .
+
+*SELECT connid
+*       fldate
+*       seatsocc
+*  FROM SFLIGHT
+*  INTO TABLE IT_SFLIGHT   UP TO 20 rows
+*  WHERE seatsocc > 200
+*  ORDER BY connid DESCENDING seatsocc ASCENDING  .
+*
+*  LOOP AT IT_SFLIGHT INTO WA_SFLIGHT.
+*    AT FIRST.
+*      WRITE : /10(100) SY-ULINE .
+*      WRITE:/10 'Flight Connection Number',
+*              50 'Flight date' ,
+*              80 'Occupied seats in economy class'.
+*         WRITE /10(100) SY-ULINE .
+*      ENDAT.
+*
+*
+*WRITE:/10 WA_SFLIGHT-connid ,
+*       50 WA_SFLIGHT-fldate ,
+*        80 WA_SFLIGHT-seatsocc.
+*  ENDLOOP.
+
+**.....................................
