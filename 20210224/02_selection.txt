@@ -1,0 +1,61 @@
+*&---------------------------------------------------------------------*
+*& Report  ZDEMO_SELECTION
+*&
+*&---------------------------------------------------------------------*
+*&
+*&
+*&---------------------------------------------------------------------*
+REPORT ZDEMO_SELECTION.
+TYPES: BEGIN OF ts_vbap,
+         vbeln TYPE vbap-vbeln,
+         posnr TYPE vbap-posnr,
+         matnr TYPE vbap-matnr,
+         arktx TYPE vbap-arktx,
+       END OF ts_vbap.
+
+TYPES: tt_vbap TYPE STANDARD TABLE OF ts_vbap.
+
+data: itab3 type tt_vbap,
+       wa3  TYPE ts_vbap.
+
+data: var type vbap-vbeln.
+
+SELECTION-SCREEN begin of block JD with FRAME title text-aa1.
+PARAMETERS: p_vbeln type vbap-vbeln.
+
+SELECT-OPTIONS: s_vbeln for var.
+SELECTION-SCREEN end of block JD.
+
+
+select vbeln
+       posnr
+       matnr
+       arktx
+  from vbap into table itab3
+*  WHERE vbeln = p_vbeln.
+     where vbeln in s_vbeln.
+
+sort itab3 by vbeln." posnr matnr.
+
+
+skip 2.
+ uline.
+  LOOP AT itab3 into wa3.
+    AT FIRST.
+      WRITE : /10(130) SY-ULINE .
+      WRITE:/10 'Sales Document',
+             50 'Sales Document item' ,
+             80 'Material No.',
+             100 'Short text for sales order item'.
+
+         WRITE /10(130) SY-ULINE .
+        ENDAT.
+write:/10 wa3-vbeln color 7,
+       50  wa3-posnr color 7,
+       80  wa3-matnr color 7,
+       100 wa3-arktx color 7.
+
+
+
+
+  ENDLOOP.

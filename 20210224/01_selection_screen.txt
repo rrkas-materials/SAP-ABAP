@@ -1,0 +1,74 @@
+*&---------------------------------------------------------------------*
+*& Report  ZDEMO_SELECTION_SCREEN
+*&
+*&---------------------------------------------------------------------*
+*&
+*&
+*&---------------------------------------------------------------------*
+REPORT ZDEMO_SELECTION_SCREEN.
+TYPES: BEGIN OF ty_sflight,
+         carrid   TYPE sflight-carrid,
+         connid   TYPE sflight-connid,
+         fldate   TYPE sflight-fldate,
+         seatsmax TYPE sflight-seatsmax,
+       END OF ty_sflight.
+
+DATA: sv_sflight TYPE ty_sflight,
+      it_sflight TYPE STANDARD TABLE OF ty_sflight.
+
+DATA: var1       TYPE sflight-carrid.
+*TABLES: SFLIGHT.
+*SELECT-OPTIONS: S_CARR FOR sflight-carrid .
+PARAMETERS: p_conn TYPE  sflight-connid .
+SELECT-OPTIONS: s_car FOR var1.
+
+
+INITIALIZATION.
+  s_car-sign   = 'I'.  " I- INCLUSIVE THE RAGE  E-EXCLUDING THE RAGE
+  s_car-option = 'BT'.
+  s_car-low    = 'AA'.
+  s_car-high   = 'LH'.
+  APPEND s_car.
+  CLEAR s_car.
+
+  s_car-sign   = 'I'.  " I- INCLUSIVE THE RAGE  E-EXCLUDING THE RAGE
+  s_car-option = 'BT'.
+  s_car-low    = 'AZ'.
+  s_car-high   = 'DL'.
+  APPEND s_car.
+  CLEAR s_car.
+
+  s_car-sign   = 'I'.  " I- INCLUSIVE THE RAGE  E-EXCLUDING THE RAGE
+  s_car-option = 'BT'.
+  s_car-low    = 'JL'.
+*S_CAR-HIGH   = 'LH'.
+  APPEND s_car.
+  CLEAR s_car.
+
+AT SELECTION-SCREEN.
+  IF p_conn IS INITIAL.
+    MESSAGE 'PLEASE ENTER A VALID CONNECTION ID' TYPE 'I'.
+*   I- INFORMATION MESSAGE , S- SUCCESS MESSAGE , E- ERROR MESSAGE, W- WARNING MESSAGE,
+  ENDIF.
+
+START-OF-SELECTION.
+  SELECT carrid
+         connid
+         fldate
+         seatsmax
+    FROM sflight
+    INTO TABLE it_sflight
+    WHERE connid = p_conn AND
+          carrid IN s_car.
+
+  IF sy-subrc = 0 .
+    LOOP AT it_sflight INTO sv_sflight .
+      WRITE:/ sv_sflight-carrid,
+              sv_sflight-connid,
+              sv_sflight-fldate,
+              sv_sflight-seatsmax.
+    ENDLOOP.
+
+  ELSE.
+    MESSAGE 'DATA NOT FOUND' TYPE 'I'.
+  ENDIF.

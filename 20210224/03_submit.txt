@@ -1,0 +1,33 @@
+*&---------------------------------------------------------------------*
+*& Report  ZREPORT_SUBMIT_PROG
+*&
+*&---------------------------------------------------------------------*
+*&
+*&
+*&---------------------------------------------------------------------*
+REPORT ZREPORT_SUBMIT_PROG.
+DATA: itab1 TYPE STANDARD TABLE OF zmih_str,
+      wa1   TYPE zmih_str.
+CLEAR wa1.
+REFRESH itab1.
+*----------------------------------------
+SELECT         vbeln
+               posnr
+               matnr
+               arktx
+  FROM vbap INTO TABLE itab1 UP TO 20 ROWS.
+
+SKIP 2.
+ULINE.
+*------------------------------------------
+*SUBMIT ZDEMO_REPORT_1 ." After executing select query  move to ZDEMO_REPORT_1 report and execute it.
+*SUBMIT ZDEMO_REPORT_1 AND RETURN ."move to ZDEMO_REPORT_1 report and execute it then return to ZREPORT_SUBMIT_PROG and execute loop and write statements .
+SUBMIT ZDEMO_SELECTION AND RETURN VIA SELECTION-SCREEN." move to ZDEMO_SELECTION report and execute it then return via selection screen  to ZREPORT_SUBMIT_PROG and execute loop and write statements .
+
+*----------------------------------------
+LOOP AT itab1 INTO wa1.
+  WRITE:/ wa1-vbeln COLOR 2,
+          wa1-posnr COLOR 2,
+          wa1-matnr COLOR 2,
+          wa1-arktx COLOR 2.
+ENDLOOP.

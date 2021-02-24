@@ -1,0 +1,5 @@
+Assignment:
+
+1. extract 20 rows from MARA using itab
+2. create selection screen for MARA where materno is key and give some range
+3. read db table VBAP using select query and retreive atleast 30 records
