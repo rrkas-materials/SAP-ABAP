@@ -1,0 +1,5 @@
+ABAP structure
+
+ppts:
+    01_ppts > 06_ABAP Structure.pdf
+    01_ppts > 07_ABAP Structure 2.pdf
