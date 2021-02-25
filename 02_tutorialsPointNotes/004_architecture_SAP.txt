@@ -1,0 +1,16 @@
+R/2 architecture---------------------------------------------------
+    2 tier architecture
+        - Server Layer : responds to clients
+        - Client Layer : requests the servers
+    disadvantages
+        as clients increases, load on db server increases, response is delayed
+        as response is delayed, output is slow on client systems
+
+R/3 architecture---------------------------------------------------
+    3 tier architecture
+        - db server Layer               : only stores data
+        - application server Layer      : only executes applications/programs
+        - presentation server Layer     : just presenting the output and taking input
+    
+
+
