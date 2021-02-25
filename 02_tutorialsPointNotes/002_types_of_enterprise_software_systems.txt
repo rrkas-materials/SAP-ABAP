@@ -1,0 +1,24 @@
+Types of Enterprize Software Systems:
+    Decentralized Systems
+    Centralized Systems
+
+Decentralized Systems-----------------------------------------------------
+    data is maintained locally at individual departments
+    departments do not have access to data of other departments/BU
+
+    Problems:
+        Numerous disparate information systems are developed individually over time
+        integrating data becomes more time and money consuming
+        inconsistencies and duplication of data
+        lack of timely information leads to customer dissatisfaction, loss of revenue and repute
+
+Centralized Systems--------------------------------------------------------
+    data is maintained at central location and is shared with various departments
+    departments have access to information of other departments/BU
+
+    Benefits:
+        eliminates duplication, discontinuity and redundency in data
+        provides information across departments in real time
+        provides control over various business process
+        increases productivity, better inventory management, promotes quality, reduced material cost, effective HR management
+        better consumer interaction, increased throughput
