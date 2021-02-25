@@ -1,0 +1,21 @@
+ERP : Enterprise Resource Planning-------------------------------------------------------
+    software that controls whole org's different departments
+    use of this package makes it possible to track and manage, in real time:
+        sales
+        production
+        finance accounting
+        human resource
+    main vendors of ERP:
+        Baan
+        JD Edwards
+        Oracle      :                               :   specializes in finance module
+        PeopleSoft  :   small scale industry        :   specializes in HR module
+        SAP         :                               :   specializes in sales & distribution (S&D), production planning, material management...
+
+Typical Business Model----------------------------------------------------------------------
+    Key Inferences:
+        A typical Enterprise has many departments/ Business units (BU)
+        These departments/BU continously communicate and exchange data with each other
+        the success of any org lies in effective communication and data exchange within 
+            departments/BU as well as associated third party such as vendors, outsources and customers
+
