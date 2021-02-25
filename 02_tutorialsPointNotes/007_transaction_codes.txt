@@ -1,0 +1,11 @@
+Transaction Code (T-code)---------------------------
+    unique code or shortcut code to execute a specific program and its corresponding screen
+    entering t-codes instead of menu, navigation and execution can be done in single step
+    the transaction code field is located right to the Enter icon (tick icon) in standard toolbar
+
+List of important T-codes:
+    se11        displays ABAP dictionary
+    se21        displays ABAP package builder
+    se37        displays ABAP function builder
+    se38        displays ABAP editor
+    se80        displays ABAP development workbench (object navigator)
