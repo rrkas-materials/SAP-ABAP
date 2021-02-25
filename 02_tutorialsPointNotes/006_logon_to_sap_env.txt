@@ -1,0 +1,19 @@
+SAP GUI : SAP Logon----------------------------------
+    software for accessing SAP
+
+Configuring SAP GUI----------------------------------
+    steps:
+        1   open SAP GUI
+        2   connections > new
+        3   in the dialog box, fill the details:
+                description
+                application server
+                instance number
+                system id
+        4   click on finish
+        5   double click on the line appearing on right panel
+
+Logging into SAP-------------------------------------
+    steps:
+        1   enter client, user and password
+        2   press enter
