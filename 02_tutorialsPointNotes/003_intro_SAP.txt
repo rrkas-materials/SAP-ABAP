@@ -1,0 +1,19 @@
+SAP : System Applications and Products in Data Processing------------------------
+    ERP Software used by medium sized and top MNCs
+    supports every business scenario/application commonly used in business
+
+    Who uses SAP:
+        70% of Fortune 100 companies
+        50% of Fortune 500 companies
+        for SME they released "Business One" and "ByDesign"
+
+History---------------------------------------------------------------------------
+    1972        5 IBM employees started company by name SAP AG
+                Objective was to develop a business Software or ERP Software
+    
+    1980        company released 1st ERP Software by name SAP R/2
+                    R : real time
+                    2 : 2 tier architecture
+    
+    1990        company released advanced version of SAP R/2 by name SAP R/3
+                    3 : 3 tier architecture
