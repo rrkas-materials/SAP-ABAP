@@ -1,0 +1,41 @@
+ABAP : Advanced Business Application Programming Language-------
+    4th generation Language, also called ABAP/4
+    created by SAP initally for report creation.
+    Entire SAP ERP is developed using ABAP
+
+    Features:
+        case-INsensitive
+        each statement terminates wth a period (.)
+
+Business Modules in SAP-----------------------------------------
+    SD          sales and distribution
+    MM          material management
+    FI          finance
+    CO          controlling
+    HR          human resource
+    CRM         customer relation management
+    SRM         supply relation management
+    SCM         supply chain management
+    APO         Advanced planner and optimizer
+
+SAP consultants---------------------------------------------------
+    SAP consultants
+        Functional Consultants
+            Business Consultants
+        Technical Consultants
+            Programming Consultants     ABAP
+            Networking Consultants      BASIS
+    
+    generally, SAP consultants are categorized as:
+        Functional consultants 
+        Technical consultants
+        Basis consultants
+    
+    roles:
+        receiving a ticket/bug in form of Functional specification document
+        analyze Business requirement as per given Functional spec
+        estimate number of hours for Business requirement
+        develop object
+        perform unit testing
+        release developed object to testing server
+        prepare Technical specification document for object
