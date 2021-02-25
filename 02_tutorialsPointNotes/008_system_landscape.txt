@@ -1,0 +1,32 @@
+System Landscape-------------------------------
+    every project in real time consists of following servers:
+        Development Server    -->    Quality/Testing Server    -->    Production Server
+
+    Development Server  :   used for writing programs
+                            does not have realtime data
+
+    Quality Server      :   data related to org is present here
+                            testing is done here
+
+    Production Server   :   data related to org is present here
+                            it is the live server
+
+
+Moving TR from Dev to Quality---------------------
+    TR : Transport Request
+    
+    steps:
+        create TR in Development, eg: while saving a report, a prompt appears to save the report in a TR
+        within the Development, go to se10
+        provide username, click on modifiable check box and click on display
+        you will see TR numbers that are modified
+        open one of the TR number by pressing + icon. you would notice a child TR
+        select one by one both TR and click on small truck icon to move it to Quality
+
+Importing TR from Dev to Quality------------------
+    steps:
+        within Quality System, go to t-code Stms_import
+        you will find all imported/importable Transports
+        select TR to be imported, click on small truck icon
+        you will get popup, select desired option available accordingly
+        the TR would be imported into the Quality System
