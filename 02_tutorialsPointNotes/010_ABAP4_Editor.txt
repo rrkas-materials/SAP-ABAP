@@ -1,0 +1,19 @@
+developing ABAP program-----------------------------------------
+    steps:
+        go to se38
+        give program name starting with Y or Z
+        click on create, provide description or title
+        select type = executable program
+        click on save
+        provide package name or create as local object
+        click on create request icon
+        provide short description
+        a TR will be generated, press enter
+        ABAP editor is opened
+        click on save and activate
+
+activating ABAP program-------------------------------------------
+    check
+    save
+    activate
+
