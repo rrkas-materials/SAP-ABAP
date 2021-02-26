@@ -1,0 +1,26 @@
+DDIC---------------------------------------------------
+    DDIC = Data DICtionary
+
+    it is one of the important tools of ABAP Workbench
+    it is the central repository where we define and maintain objects which are related to db
+
+    ways to open ABAP Dictionary:
+        SAP menu > Tools > ABAP Workbench > Development > ABAP Dictionary in SAP Easy Access Screen
+
+        Enter se11 in command field. press enter
+
+    Object types in DDIC:
+        Database table
+                create table definition, independent of any Database
+        View
+                create view definition. it is a virtual table that does not store data physically
+        Data Type
+                create definition of user-defined type
+        Type Group
+                create groups of data types
+        Domain
+                create domain. domain is used to describe technical attribute of a field
+        Search Help
+                create help document (F4 help) or called input help for fields
+        Lock object
+                create a local or lock object that helps synchronize the multiple users simultenously
