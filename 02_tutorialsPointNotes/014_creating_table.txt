@@ -10,7 +10,9 @@ creating table--------------------------------------
         provide field name, data element name
         click on save
         click on technical settings button
-        provide details as data class = APPL0, size category = 0
+        provide details as:
+            data class = APPL0
+            size category = 0
         click on save and then click on back
         save and activate
 
