@@ -1,0 +1,33 @@
+write statement---------------------------------------------
+    it is the statement which is used to print a text on the output screen
+    similar to printf() in C-language
+
+    syntax:
+        write : / pos (width) 'text1' left/right/centered/justified color <color number>.
+
+        where:
+            write                                       keyword
+            :                                           chain operator
+            /                                           new line
+            pos                                         position
+            width                                       width on output screen
+            'text1'                                     text to be printed
+            left/right/centered/justified               alignment
+            color                                       keyword
+            <color number>                              unique number of the color to be displayed
+                        #	Lower Limit	    Short Description
+                        1	C111  	 	    Grey Blue
+                        2	C211  	 	    Light Grey
+                        3	C311  	 	    Yellow
+                        4	C411  	 	    Blue Green
+                        5	C511  	 	    Green
+                        6	C611  	 	    Red
+                        7	C711  	 	    Dull Orange
+            .                                           statement terminator
+    
+    chain operator (:) = used to display multiple texts separated by commas using single write statement
+
+    examples: 
+        write 'abcd'.
+        write 'abcd' color 2.
+        write : 'abcd', 'efgh'.
