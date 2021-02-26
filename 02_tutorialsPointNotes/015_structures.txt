@@ -1,0 +1,47 @@
+structure------------------------------------------------------
+    it is a data type in DDIC, composed of data element, table types and tables
+    these are similar to tables, except that these donot have primary key or technical characterstics
+    these are reusable components
+    it is used to define the same work area in multiple programs
+    it can be nested within another structure
+
+    methods to include structure in table:
+        include structure                                   append structure
+        - used only with custom tables                      - used only by SAP tables
+        - reusable by multiple structures                   - not reusable
+        - give field name as .Include and                   - click on 'append structure' button to
+        data element as structure name                      create structure for adding a field
+
+example : include structure--------------------------------------
+    step 1: creating a structure by name "zaddr" with fields city, country, postal code
+        go to se11 > select data type > provide a name "zaddr" (say)
+        click on create
+        select "structure" and provide the description
+        specify fields and data elements:
+                component(field name)   component type(DE name)
+                city                    regio
+                country                 land1
+                pcode                   pstlz
+        save and activate
+    
+    step 2: include the zaddr in table
+        open/create the table in which zaddr is to be included
+        provide:
+            field name = .include
+            data element = zaddr
+        press enter
+        fields will be automatically copied
+        buttons (2nd set) in fields tab:
+            expand all      expand include      compress include        compress all
+
+example : append structure-----------------------------------------
+    steps:
+        open/create table to which a structure is to be appended
+        click on append structure button
+        a pop up will appear, click on create icon
+        provide append name, "zapp1" (say)
+        provide:
+            field name = mname
+            data element = zmname
+        save, activate and click on back
+        check field in bottom of table definition
