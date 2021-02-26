@@ -1,0 +1,35 @@
+package builder------------------------------
+    tool used to implement the concept of package in ABAP workbench
+    package is a type of development object that acts as a container to store development objects
+        such as function modules, screens, menus, transactions
+    it is used to develop and manage development classes
+    it is used to transfer existing development objects to other existing packages
+    these are created by BASIS consultants or team leads when project is started
+
+creating package-----------------------------
+    package builder is started by entering SPACKAGE or SE21 t-code in command field
+    give a package name starting with Y or Z
+    click on create, provide a short description
+    click on create and save, press enter 2 times
+    click on save
+
+tasks of package builder---------------------
+    creating packages and sub-packages
+    specifying a package hierarchy
+    defining package interface for potential users
+    adding element to package interface
+    defining user access for user packages
+    restricting use of interfaces to selected users
+    creating structure packages and defining filter package interfaces
+
+types of packages-----------------------------
+    provider package
+        it provides development environment such as function modules BAPIs, classes, ABAP programs and types, to other packages by using one or more interfaces
+        it performs 2 tasks:
+            creating a package
+            defining a package hierarchy
+        main purpose of these tasks is to assign and create a structure for the packages
+    
+    user package
+        provides structure for packages
+        top level in package hierarchy is also formed by structure packages, which generally contain main packages, and then the associated sub packages are created within main packages
