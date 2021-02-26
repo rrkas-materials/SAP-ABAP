@@ -1,0 +1,27 @@
+database table---------------------------------------------------
+    it is an object that stores data in form of rows and columns
+    each row is called record, each column is called field
+    to define a table, first fields are to be defined
+    to define a field, data element and domain are to be specified
+
+    defining field:
+        datatype    :   domain
+        length      :   domain
+        desciption  :   data element
+
+        field = data element + domain
+    
+    domain:
+        object which specifies technical information such as data type and length for a field
+        also specifies sign, lower case, conversion routine, fixed values and value table
+    
+    data element:
+        object which specifies semantic information such as short desciption, field labels (short, medium, long and heading) for a field
+    
+    advantages:
+        reusability:    same data element and domain can be reused by multiple table fields
+        these are also used in creating foreign key relationship, search help, ale-idoc's
+
+    key field:
+        a field which is used to identify the record uniquely
+        every table SHOULD contain atleast 1 key field
