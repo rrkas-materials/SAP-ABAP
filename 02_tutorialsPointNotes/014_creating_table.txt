@@ -1,0 +1,77 @@
+creating table--------------------------------------
+    steps:
+        go to se11
+        provide table name starting with Y or Z
+        click on create
+        provide description
+        specify delivery class as A
+        specify display/maintenance allowed
+        click on fields tab
+        provide field name, data element name
+        click on save
+        click on technical settings button
+        provide details as data class = APPL0, size category = 0
+        click on save and then click on back
+        save and activate
+
+creating record--------------------------------------
+    steps:
+        go to se11
+        give table name and click on change
+        click on utilities > table contents > create
+        provide the values
+
+displaying records------------------------------------
+    steps:
+        go to se11
+        give table name and click on display
+        click on utilities > table contents > display
+        click on execute button
+
+components of table-----------------------------------
+
+    table components
+        delivery & maintenance
+            delivery class
+            display/maintenance
+        fields
+            field
+            key
+            data element & domain
+        technical settings
+            data class
+            size category
+
+delivery class------------------------------------------
+    it specifies the type of data that is stored in table
+    data can be business data or system data
+    business data = application data (master and transaction data)
+
+    delivery class      short text
+    A                   application table (master & transaction data)
+    C                   customizing table, maintenance only by customers, not by SAP
+    L                   Table used as a repository to store temporary data. These tables are delivered to customer as empty tables.
+    G                   Customer table where SAP can add data but not modify or delete it.
+    E                   System table in which customers can make entries. System tables are delivered with some data (not empty).
+    S                   System table delivered by SAP with predefined data as part of system.
+    W                   System table for system administration data. A system table in the delivery class W usually delivered with 
+                        predefined data by SAP and can be affected by customer modifications.
+
+display maintenance---------------------------------------
+    it specifies whether the data should only be displayed or it can also be maintained
+    data maintenance = creation + deletion + modification
+
+    options available:
+        display maintenance allowed
+        display maintenance not allowed
+        display maintenance allowed with restrictions
+    
+data class------------------------------------------------
+    it specifies the physical area of a table inside the db
+    depending on the table we are supposed to select the required option
+
+    Data class          description
+    APPL0               master data, transparent tables
+    APPL1               transparent data, transparent tables
+    APPL2               organization & customizing
+
