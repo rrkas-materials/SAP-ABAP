@@ -1,0 +1,23 @@
+currency & quantity fields----------------------------------
+    these are used to store currency amount data and quantity data respectively
+    for currency and quantity fields, we have to specify the corresponding units:
+        currency: INR, USD, EURO...
+        quantity: KGS, EA, PC...
+    
+    data element        description
+    CURR                used to store currency amount or price fields
+    CUKY                used to store corresponding units (INR or USD or EURO) for currency fields
+    QUAN                used to specify the quantity for a material or stock
+    UNIT                used to store corresponding units (KGS or EA or PC) for quantity fields
+
+example------------------------------------------------------
+    steps:
+        open/create table in which currency/quantity fields are to be added
+        click on "currency/quantity fields" tab
+        add the following fields:
+            field               dataElement             Datatype        refTable        refField
+            amount              zamount                 curr(15, 2)     zcust_table     zamount_units
+            amount_units        zamount_units           CUKY(5, 0)      
+            quantity            zquantity               QUAN(5, 2)      zcust_table     zquantity_units
+            quantity_units      zquantity_units         UNIT(3)         
+        save and activate
