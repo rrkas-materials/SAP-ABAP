@@ -1,0 +1,33 @@
+foreign keys----------------------------------
+    used to establish relationships between various tables in ABAP dictionary
+    value checks can be created for input fields with help of foreign keys
+    it links 2 tables by assigning the foreign key fields of one table to the primary key of another table
+
+table validation-------------------------------
+    it is a concept through which we can restrict invalid entries in a table
+    possible methods/concepts for table validation:
+        field level validation      :       we can validate entries at field level with help of check table concept
+        domain level validation     :       we can restrict entries at domain level with help of fixed values of domain and value table of domain
+
+check table-------------------------------------
+    check table                 :   table which stores master data
+    foreign key table           :   table which is linked with check table for validating its own data
+    foreign key relationship    :   relation between 2/more tables for validating data
+
+creating foreign key relation-------------------
+    steps: (example)
+        create table "zcustomers" with fields:
+            customernumber      key     init.       num   
+            customername                            name
+        create records of zcustomers
+        create table "zcustomers_bank" with fields:
+            cno                 key     init.       num
+            bankid                                  id
+            bankname                                name
+        open table zcustomers_bank
+        select cno field
+        click on foreign keys button/icon
+        provide check table name = zcustomers
+        click on generate proposal button
+        click on copy button
+        save & activate
