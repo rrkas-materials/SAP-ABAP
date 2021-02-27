@@ -1,0 +1,70 @@
+view-------------------------------------------
+    it is a collection of fields from multiple tables
+    it does not store any data
+    whenever a view is executed, it displays data by selecting from multiple tables
+    to create views, tables must be joined
+    to join tables, there must be atleast one common key field
+
+Example:
+        |-----------------------------------------------------------------------|
+        |                              Database                                 |
+        |-----------------------------------------------------------------------|
+        |         Table 1          |     Table 2     |         Table 3          |
+        |--------------------------|-----------------|--------------------------|
+        |   F1   |   F2   |   F3   |   F4   |   F5   |   F6   |   F7   |   F8   |
+        |-----------------------------------------------------------------------|
+
+
+    View:
+        |--------------------------------------------|
+        |   F1   |   F2   |   F3   |   F5   |   f8   |
+        |--------------------------------------------|
+    
+joins---------------------------------------------
+    it is a concept to link 2/more tables for displaying data
+    types of joins:
+        inner join
+        outer join (or) left outer join
+    
+    example:
+        zcust_data
+            cno     cname       city
+            1001    aaa         hyd
+            1002    bbb         blore
+            1003    ccc         chn
+
+        zcust_bankdata
+            cno     bankid      bankname
+            1001    city01      citybank
+            1001    sbi01       sbi
+            1001    sbh01       sbh
+            1003    icici01     icici
+            1003    hdfc01      hdfc
+        
+        joined on zcust_data-cno = zcust_bankdata-cno
+
+        inner join
+            cno     cname   bankid      bankname
+            1001    aaa     city01      citybank
+            1001    aaa     sbi01       sbi
+            1001    aaa     sbh01       sbh
+            1003    ccc     icici01     icici
+            1003    ccc     hdfc01      hdfc
+        
+        outer join
+            cno     cname   bankid      bankname
+            1001    aaa     city01      citybank
+            1001    aaa     sbi01       sbi
+            1001    aaa     sbh01       sbh
+            1002    bbb
+            1003    ccc     icici01     icici
+            1003    ccc     hdfc01      hdfc
+
+inner join----------------------------------------------------
+    here, only the matching record between 2/more tables will be selected
+    unmatched records will not be shown
+
+outer join-----------------------------------------------------
+    here, all records from left (1st) table will be displayed
+    if there is a matching record in other tables, they will be displayed
+    if there is no matching record, data will be displayed as blank values
