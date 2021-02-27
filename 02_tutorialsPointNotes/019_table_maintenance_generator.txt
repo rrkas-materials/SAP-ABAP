@@ -1,0 +1,38 @@
+Table Maintenance Generator-----------------------------------
+    it is standard SAP program created in the form of function modules to maintain mass/bulk amount of data instead of maintaining each and every record
+    Maintenance = creation, deletion and modification
+    it is also used for validating the table data using the concept of events
+
+creating Table Maintenance Generator--------------------------
+    steps:
+        create table "zcust" with fields:
+            mandt
+            cno
+            cname
+            land1
+        save and activate
+        click on utilities > Table Maintenance Generator
+        provide details:
+            Authorization group = &NC&
+            function group = zcust
+            Maintenance type = one step
+        click on find screen button
+        a popup will appear. press enter
+        the screen number will be automatically proposed
+        click on create icon
+        complete the saving and then back
+
+activating Table Maintenance Generator--------------------------
+    steps:
+        go to se80
+        select function group from list
+        provide zcust and press enter
+        right click on zcust and select activate
+
+unit testing-----------------------------------------------------
+    steps:
+        go to sm30
+        provide zcust
+        click on maintain button
+        enter values for a single/bulk record(s)
+        click on save
