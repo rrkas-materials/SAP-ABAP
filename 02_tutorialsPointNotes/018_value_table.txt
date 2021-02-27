@@ -1,0 +1,33 @@
+value table-----------------------------------------
+    table name defined at domain level so that all table fields will be reffering to the domain will be checked or validated with a single table called as value table
+    main advantage : automate the system for foreign key relation, i.e., system will automatically display check table name to generate foreign key proposal
+    if foreign key for a field is defined that points to this domain, the value of the domain is proposed as check table for foreign key
+
+creating value table--------------------------------
+    steps:
+        create table zzcustomer with fields:
+            cno         zcno
+            cname       zcname
+        create some records
+        define check table name at domain level:    (this check table is called value table)
+            goto domain zcno
+            click on value range tab
+            provide value table as zzcustomer
+            save and activate, domain and table
+        create another table by name zzcustomer_bank with fields:
+            cno
+            bankid
+            bankname
+        maintain foreign key relationship:
+            open zzcustomer_bank table
+            select cno field and click on foreign key button
+            a pop-up will appear with value table to be proposed for check table
+            choose:
+                yes     foreign key relation will be automatically displayed
+                no      it will not be displayed
+
+check table VS value table-----------------------------
+    check table                                             value table
+    - defined at field level                                - defined at domain level
+    - FK relation is not automatic, we must enter           - FK relation is automatic, once we maintain value table
+      check table name                                        FK relation is automatically generated
