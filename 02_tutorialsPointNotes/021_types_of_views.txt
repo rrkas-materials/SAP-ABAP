@@ -1,0 +1,147 @@
+types of views----------------------------------------------
+    database view
+    projection view
+    help view
+    maintenance view
+
+database view-----------------------------------------------
+    a view created on 2/more tables by clubbing the fields using inner join is called database join
+    here, we can only read data
+    no maintenance operation can be done
+    it can include an entire table
+
+    example: develop a db view on MARA, MAKT tables to display:
+        MATNR           MARA
+        MTART           MARA
+        MBRSH           MARA
+        MEINS           MARA
+        SPRAS           MAKT
+        MAKTX           MAKT
+
+    steps:
+        go to se11
+        select view and give name "zdbview1"
+        click on create button
+        select database view and click copy button
+        provide short description
+        go to tables/joins conditions
+        provide table names along with join condition:
+            Tables                      Join conditions
+            MARA                        Tables          field name      =   table       field name
+            MAKT                        MARA            MANDT           =   MAKT        MANDT
+                                        MARA            MATNR           =   MAKT        MATNR
+        click on view fields tab
+        click on table fields button
+        double cick on MARA, select the fields:
+            MATNR
+            MTART
+            MBRSH
+            MEINS
+        click on copy button
+        double click on MAKT, select the fields:
+            SPRAS
+            MAKTX
+        click on copy button
+        go to selection condition tab, provide the condition:
+            table       field name          operator        comparison value        and/or
+            MAKT        SPRAS               eq              'E'                     or
+            MAKT        MAKTX               eq              'Sony Sunny'
+        save, check and activate
+        click on contents button (ctrl + shift + f10)
+        click on execute button (f8)
+
+projection view----------------------------------------------------
+    it is created on a single table
+    advantage: we can project only required/limited fields by filtering the unwanted fields
+    read and maintenance of data is allowed
+    from database point of view, it improves the system performance as we minimize the fields
+
+    example: develop a projection view on MARA table to display only:
+        MATNR
+        MTART
+        MBRSH
+        MEINS
+    
+    steps:
+        go to se11
+        select view and give name "zpview1"
+        click on create
+        select projection view
+        click on copy button
+        provide short description
+        give table name and click on table fields button
+        select fields:
+            MATNR
+            MTART
+            MBRSH
+            MEINS
+        click on maintenance status tab
+        select "read and change" radio button
+        save, check and activate
+        click on contents icon
+        click on execute icon
+
+help view----------------------------------------------------------------
+    a view created on 2/more tables for sreach-helps is called help view
+    it uses outer join concept
+    here data can only be read, not maintained
+    these views cannot be executed, because these are designed only for search-helps
+
+    creating help view--------------------------------------------------
+        steps:
+            go to se11
+            select view and give name "zhview1"
+            click on create
+            select help view and click on copy button
+            provide short description
+            give table name as MARA and press enter
+            click on relationship button and select and click on copy button
+            join condition will be automatically proposed by system
+            go to view fields tab
+            click on "table fields" button, select MARA
+            click on choose button
+            select the fields
+            click on copy button
+            select MAKT table and select required fields
+            go to selection conditions tab
+            give condition
+            save, check and activate
+
+maintenance view---------------------------------------------------------------
+    it is created on 2/more tables using inner join
+    here, we can read and maintain data
+    it can create data inconsistency problems
+    it should not be created on standard tables. it should be created only on custom tables
+
+    creating maintenance view--------------------------------------------------
+        steps:
+            go to se11
+            select view and give name "zmview1"
+            click on create button
+            select maintenance view and click on copy button
+            provide short description
+            give table name as MARA and press enter
+            click on relationship button and click on copy button
+            join condition will be automatically proposed by system
+            click on table fields button and select MARA
+            click on choose button
+            select fields and click on copy
+            select MAKT and select required fields
+            go to selection conditions tab and give the condition
+                    table   field name      operator    comparison value    and/or
+                    MARA    MTART           eq          'FERT'              AND
+                    MAKT    SPRAS           eq          'E'
+            go to maint.ststus tab
+            select access = read, change, delete and insert
+            click on save, check and activate
+            click on utilities > table maintenance generator
+            provide details as:
+                authorization group =   &NC&
+                function group      =   ztag1_group
+                maintenance types   =   one step
+                overview screen     =   1
+            click on create button
+            click on save
+            go to sm30
+            provide view name
+            click on maintain button
